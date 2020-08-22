@@ -1,6 +1,7 @@
 package fibbonacci
 
 import (
+	"reflect"
 	"testing"
 )
 
@@ -12,6 +13,10 @@ func TestFibbonacciSerial(t *testing.T) {
 
 	if gotLen != wantLen {
 		t.Errorf("TestFibbonacciSerial len(got) %v != len(want) %v", gotLen, wantLen)
+	}
+
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("TestFibbonacciSerial got %v, want %v", got, want)
 	}
 
 	for i, fib := range got {
