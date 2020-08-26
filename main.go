@@ -1,9 +1,9 @@
 package main
 
 import (
-	"codechallenge/codility/challenges/tennistournament"
+	"codechallenge/codility/challenges/stockslaundering"
 )
 
 func main() {
-	tennistournament.Client()
+	stockslaundering.Client()
 }
