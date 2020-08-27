@@ -10,11 +10,7 @@ func reverse(str string) (result string) {
 }
 
 func main() {
-
-	// Reversing the string.
-	str := "Geeks"
-
-	// returns the reversed string.
+	str := ""
 	strRev := reverse(str)
 	fmt.Println(str)
 	fmt.Println(strRev)
