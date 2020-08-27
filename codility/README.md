@@ -1,13 +1,8 @@
 # Codility Solutions
-
-Solutions to the exercises and tests at http://codility.com/
-
-https://codility.com/programmers/lessons/
+Solutions to the exercises and tests at https://codility.com/programmers/lessons/
 
 ## Test cases
-
 So far, their test cases follow a predictable methodology :
-
 * the examples provided are explicitly tested
 
 ### Correctness tests
@@ -55,3 +50,10 @@ So far, their test cases follow a predictable methodology :
 
 
 > Content from https://github.com/johnmee/codility/edit/master/README.md
+
+
+### Resources:
+- https://github.com/topics/codility-solutions
+- https://github.com/theodesp/codility-go
+- https://github.com/jmornar/codility-java-solutions
+- https://github.com/Mickey0521/Codility
