@@ -22,102 +22,12 @@ import (
 
 // https://app.codility.com/programmers/lessons/92-tasks_from_indeed_prime_2016_college_coders_challenge/socks_laundering/
 
-// Client calls frogjump()
-func Client() {
-
-	var testcase string
-	var want, got int
-	var ml int       // ml=washing machine limit
-	var ds, cs []int // ds=dirty socks, cl= clean socks
-
-	testcase = "1. Provided data"
-	ml = 2
-	ds = []int{1, 2, 1, 1}    // pairs=1	single=1,2
-	cs = []int{1, 4, 3, 2, 4} // pairs=4	single=1,2,3
-	want = 3
-	got = stocksLaundering(ml, ds, cs)
-	PrintFail(got, want, testcase)
-
-	testcase = "2. Pair does not exist."
-	ml = 1
-	ds = []int{1}
-	cs = []int{2}
-	want = 0
-	got = stocksLaundering(ml, ds, cs)
-	PrintFail(got, want, testcase)
-
-	testcase = "3. Two clean socks pairs and zero machine capacity."
-	ml = 0
-	cs = []int{2, 2, 1, 2, 3, 4, 5, 6, 7, 2, 8}
-	ds = []int{1}
-	want = 2
-	got = stocksLaundering(ml, cs, ds)
-	PrintFail(got, want, testcase)
-
-	testcase = "4. Machines capacity 0. No clean socks pair."
-	ml = 0
-	cs = []int{1, 2}
-	ds = []int{3}
-	want = 0
-	got = stocksLaundering(ml, cs, ds)
-	PrintFail(got, want, testcase)
-
-	testcase = "5. Single pair of clean socks."
-	ml = 1
-	cs = []int{3, 3}
-	ds = []int{4, 5, 6, 7, 8}
-	want = 1
-	got = stocksLaundering(ml, cs, ds)
-	PrintFail(got, want, testcase)
-
-	testcase = "6. When there is only one clean socks."
-	ml = 1
-	cs = []int{3}
-	ds = []int{5, 6, 7, 8, 8}
-	want = 0
-	got = stocksLaundering(ml, cs, ds)
-	PrintFail(got, want, testcase)
-
-	testcase = "7. When there is no single clean sock."
-	ml = 1
-	cs = []int{3, 3}
-	ds = []int{5}
-	want = 1
-	got = stocksLaundering(ml, cs, ds)
-	PrintFail(got, want, testcase)
-
-	testcase = "8. When there is a dirty only one dirty sock."
-	ml = 5
-	cs = []int{1, 1, 3, 3, 7}
-	ds = []int{5}
-	want = 2
-	got = stocksLaundering(ml, cs, ds)
-	PrintFail(got, want, testcase)
-
-	testcase = "9. When there is more than one single clean sock."
-	ml = 1
-	cs = []int{3, 3}
-	ds = []int{5, 2, 2}
-	want = 1
-	got = stocksLaundering(ml, cs, ds)
-	PrintFail(got, want, testcase)
-
-	testcase = "10. When there is a one pair of clean and diirty socks."
-	ml = 9
-	cs = []int{3, 3, 1, 50}
-	ds = []int{1, 50}
-	want = 3
-	got = stocksLaundering(ml, cs, ds)
-	PrintFail(got, want, testcase)
-}
-
 // Solution scored 70%. It failed on:
 // there are no clean socks taken: got 3 expected 2
 // randomly generated tests with only a couple of colors: got 9 expected 8
 // maximal possible test cases: got 36 expected 37; got 36 expected 33
 
 func stocksLaundering(K int, C []int, D []int) int {
-
 	lenC := len(C)
 	lenD := len(D)
 
@@ -129,8 +39,8 @@ func stocksLaundering(K int, C []int, D []int) int {
 	var singleCS []int
 	totalPair := 0
 
-	fmt.Println()
-	fmt.Printf("C:%v len(C):%v\n", C, lenC)
+	// fmt.Println()
+	// fmt.Printf("C:%v len(C):%v\n", C, lenC)
 
 	if lenC > 1 {
 		for i := 0; i < lenC-1; i++ {
@@ -152,39 +62,15 @@ func stocksLaundering(K int, C []int, D []int) int {
 	}
 
 	sort.Ints(singleCS)
-	fmt.Printf("Total pair %v\n", totalPair)
-	fmt.Printf("Single CS %v\n", singleCS)
-	fmt.Printf("K:%v\n", K)
+	// fmt.Printf("Total pair %v\n", totalPair)
+	// fmt.Printf("Single CS %v\n", singleCS)
+	// fmt.Printf("K:%v\n", K)
+
 	if K == 0 {
 		return totalPair
 	}
 
-	lenSingleCS := len(singleCS)
 	sort.Ints(D)
-	fmt.Printf("D:%v len(D):%v\n", D, lenD)
-
-	if lenD == 1 && lenSingleCS > 1 {
-		fmt.Println(1)
-		if singleCS[lenSingleCS-1] > D[0] {
-			return totalPair
-		}
-	} else if lenD == 1 && lenSingleCS == 1 {
-		fmt.Println(2)
-		if D[0] == singleCS[0] {
-			totalPair = totalPair + 1
-			return totalPair
-		}
-		return totalPair
-	} else if lenD == 1 && lenSingleCS == 0 {
-		fmt.Println(3)
-		return totalPair
-	} else if lenD == 2 && lenSingleCS == 0 {
-		if D[0] == D[1] {
-			totalPair = totalPair + 1
-			return totalPair
-		}
-	}
-
 	dsMap := make(map[int]int)
 	for i := 0; i < lenD; i++ {
 		if _, ok := dsMap[D[i]]; !ok {
@@ -194,10 +80,8 @@ func stocksLaundering(K int, C []int, D []int) int {
 		}
 	}
 
-	fmt.Printf("DMap %v\n", dsMap)
-
 	for _, scs := range singleCS {
-		fmt.Println(scs)
+
 		if _, ok := dsMap[scs]; ok {
 			totalPair++
 			K--
@@ -217,13 +101,23 @@ func stocksLaundering(K int, C []int, D []int) int {
 		}
 	}
 
+	// fmt.Printf("DMap %v\n", dsMap)
+	// fmt.Printf("Total %v\n", totalPair)
 	for _, v := range dsMap {
-		if v >= 2 {
-			divisor := v / 2
+		// fmt.Printf("v %v\n", v)
 
-			if K > divisor {
+		if v >= 2 && K >= 2 {
+			divisor := v / 2
+			mod := v % 2
+			// fmt.Printf("div %v\n", divisor)
+			if K >= divisor {
 				totalPair = totalPair + divisor
-				K -= divisor
+
+				if mod == 0 {
+					K -= v
+				} else {
+					K -= v - 1
+				}
 
 				if K < 2 {
 					return totalPair
@@ -232,7 +126,7 @@ func stocksLaundering(K int, C []int, D []int) int {
 		}
 	}
 
-	fmt.Printf("DMap after cs  %v\n", dsMap)
+	// fmt.Printf("DMap after cs  %v\n", dsMap)
 	return totalPair
 }
 
