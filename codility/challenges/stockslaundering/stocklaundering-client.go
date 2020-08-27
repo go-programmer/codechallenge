@@ -187,3 +187,10 @@ func Client() {
 	got = stocksLaundering(ml, cs, ds)
 	PrintFail(got, want, testcase)
 }
+
+// Results in choronological orger
+// https://app.codility.com/demo/results/trainingHN52VZ-N9F
+// https://app.codility.com/demo/results/training9APP6W-3WW
+// https://app.codility.com/demo/results/trainingT6UWRK-MMH
+// https://app.codility.com/demo/results/trainingDUQ2ZJ-7R3
+// https://app.codility.com/demo/results/trainingZMWY7K-YQN
