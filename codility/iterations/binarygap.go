@@ -1,3 +1,8 @@
+package iterations
+
+import (
+	"fmt"
+)
 
 // min 1
 // max 483647
@@ -37,12 +42,7 @@ func longestBinaryGap(N int) int {
 	return m
 }
 
-func longestBinaryGapClient() {
-	const name, age = "Kim", 22
-	s := fmt.Sprintln(name, "is", age, "years old.")
-	io.WriteString(os.Stdout, s) // Ignoring error for simplicity.
-	fmt.Println(s)
-
-	// 561892
+// LongestBinaryGapClient call
+func LongestBinaryGapClient() {
 	longestBinaryGap(561892)
 }
