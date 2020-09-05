@@ -25,19 +25,22 @@ func solution(A []int) int {
 
 	lastValue := 1
 
+	// We loop until second last value
 	for i < lastIndex {
 
 		if A[i] == A[i+1] {
 			lastValue = A[i] + 1
 		} else {
-
 			nextVal := A[i] + 1
 
-			if A[i] != nextVal && nextVal != A[i+1] {
-				lastValue = nextVal
-				break
-			}
+			if A[i] != nextVal {
 
+				if nextVal != A[i+1] {
+
+					lastValue = nextVal
+					break
+				}
+			}
 		}
 
 		i++
@@ -51,7 +54,7 @@ func solution(A []int) int {
 			lastValue = A[i] + 1
 		}
 
-		// If last value is one more than last value
+		// If second last value is one more than last value
 		if A[i-1]+1 == A[i] {
 			lastValue = A[i] + 1
 		}

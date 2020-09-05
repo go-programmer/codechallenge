@@ -1,68 +1,92 @@
 package missinginteger
 
-import "sort"
+import (
+	"testing"
+)
 
-func Solution(A []int) int {
-	sort.Ints(A)
-	lenA := len(A)
-	lastIndex := lenA - 1
+func TestShouldReturnOne(t *testing.T) {
+	a := []int{-1, -1, -1, -1, -1, 2, 3, 4, 4}
+	want := 1
 
-	if A[lastIndex] <= 0 || A[0] > 1 {
-		return 1
+	if got := solution(a); got != want {
+		t.Fatalf("FAIL:  got %d != want %d\n", got, want)
 	}
 
-	if lenA == 1 && A[0] == 1 {
-		return 2
+}
+
+func TestSecondLastAndLastValueAreEqual(t *testing.T) {
+	a := []int{1, 1, 1, 1, 1, 2, 3, 4, 4, 4}
+	want := 5
+
+	if got := solution(a); got != want {
+		t.Fatalf("FAIL:  got %d != want %d\n", got, want)
 	}
 
-	i := sort.Search(lenA, func(i int) bool { return A[i] >= 1 })
-	if i < lenA && A[i] != 1 {
-		return 1
-		// fmt.Printf("%d not found in %v\n", 1, A)
+}
+
+func TestSingleElement(t *testing.T) {
+	a := []int{1}
+	want := 2
+
+	if got := solution(a); got != want {
+		t.Fatalf("FAIL:  got %d != want %d\n", got, want)
 	}
 
-	// if isEven(lenA) {
-	// 	lastIndex = lastIndex - 1
-	// }
-	lastValue := 1
+}
 
-	for i < lastIndex {
-
-		if A[i] == A[i+1] {
-			lastValue = A[i] + 1
-		} else {
-			nextVal := A[i] + 1
-
-			if A[i] != nextVal {
-
-				if nextVal != A[i+1] {
-
-					lastValue = nextVal
-					break
-				}
-			}
-		}
-
-		i++
+func TestCaseSix(t *testing.T) {
+	a := []int{1}
+	got := solution(a)
+	want := 2
+	if got != want {
+		t.Fatalf("FAIL:  got %d != want %d\n", got, want)
 	}
+}
 
-	if i == lastIndex {
-
-		// Check if second last and last value are equal
-		if A[i-1] == A[i] {
-			lastValue = A[i] + 1
-		}
-
-		// if last value is one more than last value
-		if A[i-1]+1 == A[i] {
-			lastValue = A[i] + 1
-		}
-
+func TestCaseFive(t *testing.T) {
+	a := []int{-1, -2000, -3}
+	got := solution(a)
+	want := 1
+	if got != want {
+		t.Fatalf("FAIL:  got %d != want %d\n", got, want)
 	}
+}
 
-	if lastValue >= 1000000 {
-		return 1000000
+func TestCaseFour(t *testing.T) {
+	a := []int{-1, 000, 000}
+	got := solution(a)
+	want := 1
+
+	if got != want {
+		t.Fatalf("FAIL:  got %d != want %d\n", got, want)
 	}
+}
 
-	return lastValue
+func TestCaseThree(t *testing.T) {
+	a := []int{1, 3, 6, 4, 1, 2, 10000000}
+	got := solution(a)
+	want := 5
+
+	if got != want {
+		t.Fatalf("FAIL:  got %d != want %d\n", got, want)
+	}
+}
+
+func TestCaseTwo(t *testing.T) {
+	a := []int{9, 3, 6, 1, 15, 21, 8, 36, 45, 5}
+	got := solution(a)
+	want := 2
+
+	if got != want {
+		t.Fatalf("FAIL:  got %d != want %d\n", got, want)
+	}
+}
+func TestCaseOne(t *testing.T) {
+	a := []int{-1, -50, 1, 2, 3}
+	got := solution(a)
+	want := 4
+
+	if got != want {
+		t.Fatalf("FAIL:  got %d != want %d\n", got, want)
+	}
 }
