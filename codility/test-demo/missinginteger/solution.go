@@ -4,13 +4,13 @@ import (
 	"sort"
 )
 
-// solution Return smallest positive integer in the slice
 func solution(A []int) int {
 	sort.Ints(A)
 	lenA := len(A)
 	lastIndex := lenA - 1
 
-	if A[lastIndex] <= 0 || A[0] > 1 {
+	// If the slice of all negative numbers
+	if A[lastIndex] <= 0 {
 		return 1
 	}
 
@@ -18,62 +18,37 @@ func solution(A []int) int {
 		return 2
 	}
 
+	// The number must start from one.
+	// If 1 does not exists return 1.
 	i := sort.Search(lenA, func(i int) bool { return A[i] >= 1 })
 	if i < lenA && A[i] != 1 {
 		return 1
 	}
 
-	lastValue := 1
-
-	// We loop until second last value
+	// The next number must be 1 more than start,
+	// or equal to start.
+	start := A[i]
 	for i < lastIndex {
+		i++
 
-		if A[i] == A[i+1] {
-			lastValue = A[i] + 1
-		} else {
-			nextVal := A[i] + 1
+		if start != A[i] {
+			start++
 
-			if A[i] != nextVal {
-
-				if nextVal != A[i+1] {
-
-					lastValue = nextVal
-					break
-				}
+			if start != A[i] {
+				break
 			}
 		}
-
-		i++
 	}
 
-	// Above for loop will not check for last value
-	if i == lastIndex {
-
-		// If second last and last value are equal
-		if A[i-1] == A[i] {
-			lastValue = A[i] + 1
-		}
-
-		// If second last value is one more than last value
-		if A[i-1]+1 == A[i] {
-			lastValue = A[i] + 1
-		}
-
+	// If last two values are equal
+	if start == A[i] {
+		start++
 	}
 
-	if lastValue >= 1000000 {
+	// Requirement
+	if start >= 1000000 {
 		return 1000000
 	}
 
-	return lastValue
-
+	return start
 }
-
-// Pseudocode:
-// sort
-// if the max is -ve or 0, then return 1
-// remove duplicate - No need.
-// binary search for index whose value is 1
-// then compare next smallest number starting from that index
-// 		if next index is not equal to or greater than A[index} + 1,
-// 		return A[index] + 1
