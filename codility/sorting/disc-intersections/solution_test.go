@@ -1,19 +1,25 @@
 package discintersections
 
 import (
-	"fmt"
 	"testing"
+
+	. "gopkg.in/check.v1"
 )
 
-func TestSolution(t *testing.T) {
-	for k, test := range testCases {
-		fmt.Printf("k %v | test %v\n", k, test.description)
+type MySuite struct{}
 
-		if got := solution(test.A); got != test.want {
-			t.Fatalf("FAIL: %s \n A: %#v got %d : want %d\n",
-				test.description, test.A, got, test.want)
-		}
+var _ = Suite(&MySuite{})
 
-		t.Logf("SUCCESS: %s", test.description)
+func Test(t *testing.T) {
+	TestingT(t)
+}
+
+func (s *MySuite) TestNumberOfDiscIntersections(c *C) {
+	c.Assert(numberOfDiscIntersections([]int{1, 5, 2, 1, 4, 0}), Equals, 11)
+}
+
+func (s *MySuite) BenchmarkNumberOfDiscIntersections(c *C) {
+	for i := 0; i < c.N; i++ {
+		numberOfDiscIntersections([]int{1, 5, 2, 1, 4, 0})
 	}
 }
