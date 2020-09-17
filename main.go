@@ -1,8 +1,9 @@
 package main
 
 import (
+	iterations "codechallenge/codility/1.Iterations"
 	"codechallenge/codility/challenges/stockslaundering"
-	"codechallenge/codility/iterations"
+	// "codechallenge/codility/iterations"
 )
 
 func main() {
