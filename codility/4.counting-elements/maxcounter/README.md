@@ -117,3 +117,66 @@ Check maxCounter > counter[0],
 
 
 The first solution scored 44%.
+
+I compared to the third party solution, and
+made changes. The idea seemed to be the same
+just logics were misplaced. Made changes as 
+required and the solution passed the tests.
+
+Coming up with some tests cases to understand 
+further where the solution fails looking at the 
+result of the initial solution.
+
+Case 1: 3 max counter operation
+A := []int {2,3,4,4,4,4,1}
+N := 3
+
+Instruction  Base    Counter N = 3    
+    A                1  2  3
+
+    2         0      0  1  0
+    3         0      0  0  1
+    4         1      0  0  0
+    4         1      0  0  0
+    4         1      0  0  0
+    4         1      0  0  0
+    1         0      2  0  0
+
+Want:                2  1  1
+
+
+Case 2: 6 max counter operations
+A := []int {6, 1, 4, 2, 3, 6, 6, 6, 6, 4, 4, 1, 6}
+N := 5
+
+Instruction     Base    Counter N = 5   Temp
+    A                   1  2  3  4  5   
+
+    6           0       0  0  0  0  0   1
+    1           0       1  0  0  0  0   1
+    4           0       0  0  0  1  0   1
+    2           0       0  1  0  0  0   1
+    3           0       0  0  1  0  0   1
+    6           1       0  0  0  0  0   1
+    6           1       0  0  0  0  0   1
+    6           1       0  0  0  0  0   1
+    6           1       0  0  0  0  0   1
+    4           0       0  0  0  2  0   2
+    4           0       0  0  0  3  0   3
+    1           0       2  0  0  3  0   3
+    6           3       0  0  0  3  0   3
+
+Want:           X       3, 3, 3, 3, 3
+
+Initial solution works fine for this test case.
+
+
+Case 3: No max counter operation.
+A := []int {6, 1, 4, 2, 3, 6, 6, 6, 6, 4, 4, 1, 6}
+N := 7
+This test case also did not fail to test.
+
+
+As the initial failed for medium and large data sets,
+it's hard to generate the test data. Hence, the validation
+process is stopped.

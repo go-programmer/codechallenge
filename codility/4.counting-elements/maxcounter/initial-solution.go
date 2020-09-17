@@ -1,34 +1,32 @@
 package maxcounter
 
-func solution(N int, A []int) []int {
-
-	// Incresed to make easy for comparision
-	nMax := N + 1
-
+func initialSolution(N int, A []int) []int {
 	tempMaxCounter := 0
 	counter := make([]int, N+1)
-
-	// This is used as the last max value operation
 	counter[0] = 0
 
 	for _, instruction := range A {
 
-		if instruction == nMax {
-			counter[0] = tempMaxCounter
-		} else {
+		// if A[K] = N + 1 then operation K is max counter.
+		// Misjudged that condition.
+		if instruction <= N {
 
-			if counter[instruction] < counter[0] {
+			if tempMaxCounter == counter[0] {
 				counter[instruction] = counter[0]
 			}
 
 			counter[instruction]++
 
-			if tempMaxCounter < counter[instruction] {
+			if counter[instruction] > tempMaxCounter {
 				tempMaxCounter = counter[instruction]
 			}
 
-		}
+		} else {
+			if tempMaxCounter > counter[0] {
+				counter[0] = tempMaxCounter
+			}
 
+		}
 	}
 
 	// Set last maximum counter value to all other

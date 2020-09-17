@@ -14,6 +14,7 @@ func thirdpartySolution(N int, A []int) []int {
 	result := make([]int, N)
 
 	for _, value := range A {
+		
 		if value == maxNum {
 			base = currentMax
 		} else {
