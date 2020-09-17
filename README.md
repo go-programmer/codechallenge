@@ -19,5 +19,16 @@ Learn from other's solution, compare. Try to add more dimensions to the problem.
 Improve your understanding by trying to answer `Why was it done this way?`. Review. Realize. Refactor. Re-engineer. 
 
 
+##### Estimate The Complexity, If Not Provided:
+The time limit set for online tests is usually from 1 to 10 seconds. We can therefore
+estimate the expected complexity. During contests, we are often given a limit on the size of
+data, and therefore we can guess the time complexity within which the task should be solved.
+This is usually a great convenience because we can look for a solution that works in a specific
+complexity instead of worrying about a faster solution. For example, if:
+• n <= 1 000 000, the expected time complexity is O(n) or O(nlogn),
+• n <= 10 000, the expected time complexity is O(n^2),
+• n <= 500, the expected time complexity is O(n^3).
+Of course, these limits are not precise. They are just approximations, and will vary depending on the specific task.
+
 # Folders
 `resource` folder contains learning materials.
