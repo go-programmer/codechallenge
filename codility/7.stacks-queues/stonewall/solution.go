@@ -12,7 +12,7 @@ func solution(H []int) int {
 
 		if l.size == 0 || l.Front() < value {
 			l.Push(value)
-			result += 1
+			result++
 		}
 	}
 
