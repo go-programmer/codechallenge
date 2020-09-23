@@ -27,7 +27,7 @@ def quadratic_max_slice(A, pref):
     return result
 ```
 
-### O(n^2) solution with prefix-sum
+### O(n^2) solution without prefix-sum
 ```python
 def quadratic_max_slice(A):
     n = len(A), result = 0
