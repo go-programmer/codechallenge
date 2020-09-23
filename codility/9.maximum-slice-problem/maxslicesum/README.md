@@ -34,3 +34,5 @@ The solution failed for 1,2 and 3 elements,
 extreme_minimum, neg_const and growing_negative.
 
 
+The solution was reviwed based on max profit problem.
+Tried out few things for verification and unerstanding.
