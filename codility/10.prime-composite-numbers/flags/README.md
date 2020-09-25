@@ -108,7 +108,7 @@ A[11] = 2
 
 Then K flags on the peaks. The set flag is 3.
 There are conditions to set flag:
-  The distance between any two flags should be greater than or equal to K.
+  **The distance between any two flags should be greater than or equal to K.**
   The distance between indices P and Q is the absolute value |P − Q|.
 
 ### Observation
@@ -199,4 +199,10 @@ if peaks[i+1]-peaks[i] >= peakLen {
 
 Need to think about fiding other ways of finding max peaks.
 
+
+### Conclusion
+Tried out many variations but the final solution with max result could only be
+reached with the logic for fiding max flags counts using the thirdparty solution.
+
+The max score reached ws 86 percent.
 
