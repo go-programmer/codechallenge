@@ -23,7 +23,7 @@ func TestSolution(t *testing.T) {
 
 func TestHighestDivisor(t *testing.T) {
 
-	for k, test := range divisor[len(perimeter)-1:] {
+	for k, test := range divisor[len(divisor)-1:] {
 		fmt.Printf("k %v | test %v\n", k, test.description)
 
 		if got := highestDivisor(test.n); got != test.want {

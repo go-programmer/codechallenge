@@ -1,6 +1,7 @@
 package solution
 
 import (
+	"fmt"
 	"math"
 )
 
@@ -38,16 +39,21 @@ func solution(n int) int {
 func highestDivisor(n int) int {
 	i := 1
 	highestDivisor := 0
+	divisors := make([]int, n/2)
+	divisorsLen := 0
 
 	for i*i < n {
 
 		if n%i == 0 {
 			highestDivisor = i
+			divisors[divisorsLen] = i
+			divisorsLen++
 		}
 
 		i++
 	}
-
+	divisors = divisors[:divisorsLen]
+	fmt.Println(divisors)
 	return highestDivisor
 }
 
