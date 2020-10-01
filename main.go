@@ -1,19 +1,17 @@
 package main
 
-import (
-	iterations "codechallenge/codility/1.Iterations"
-	"codechallenge/codility/challenges/stockslaundering"
-	// "codechallenge/codility/iterations"
-)
+// iterations "codechallenge/codility/1.Iterations"
+// "codechallenge/codility/challenges/stockslaundering"
+// "codechallenge/codility/iterations"
 
 func main() {
 
 }
 
-func callBinaryGap() {
-	iterations.LongestBinaryGapClient()
-}
+// func callBinaryGap() {
+// 	iterations.LongestBinaryGapClient()
+// }
 
-func callStockLaundering() {
-	stockslaundering.Client()
-}
+// func callStockLaundering() {
+// 	stockslaundering.Client()
+// }

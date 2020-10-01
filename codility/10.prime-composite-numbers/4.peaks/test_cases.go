@@ -37,7 +37,7 @@ var blocks = []struct {
 		err:         "",
 	},
 	{
-		description: "A has 4 blocks",
+		description: "A has 3 blocks",
 		A:           []int{1, 2, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2},
 		blocks:      3,
 		err:         "",
@@ -50,7 +50,7 @@ var blocks = []struct {
 	},
 	{
 		description: "2 peaks but 1 block",
-		A:           []int{1, 2, 1, 2, 1},
+		A:           []int{1, 2, 1, 1, 1},
 		blocks:      1,
 		err:         "",
 	},
@@ -75,14 +75,19 @@ var blocks = []struct {
 
 	{
 		description: "4 peaks, 3 blocks",
-		A:           []int{1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2},
-		blocks:      3,
-		err:         "",
+		// 	     0  1  2  3  4  5  6  7  8  9  10 11
+		A: []int{1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2},
+		// 		 	1     2     3              4
+		// 12=3*4; 3 blocks with 4 elements, or 4 blocks with 3 elements
+		// 4 Blocks of size 3, is not possible.
+		// 3 blocks of size 4 is possible.
+		blocks: 3,
+		err:    "",
 	},
 	{
 		description: "4 peaks, 3 blocks",
-		A:           []int{1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2},
-		blocks:      3,
+		A:           []int{1, 5, 3, 4, 3, 4, 1, 4, 3, 4, 6, 2},
+		blocks:      4,
 		err:         "",
 	},
 	{
@@ -197,6 +202,20 @@ var peaks = []struct {
 		description: "Two peaks",
 		A:           []int{0, 1, 0, 0, 1, 0, 0, 1, 0},
 		peaks:       []int{1, 4, 7},
+		err:         "",
+	},
+}
+
+var factors = []struct {
+	description string
+	A           int
+	factorials  []int
+	err         string
+}{
+	{
+		description: "50000",
+		A:           50000,
+		factorials:  []int{5},
 		err:         "",
 	},
 }

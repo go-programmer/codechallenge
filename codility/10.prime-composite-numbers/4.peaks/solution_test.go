@@ -37,3 +37,19 @@ func TestPeaks(t *testing.T) {
 
 	}
 }
+
+func TestFactorials(t *testing.T) {
+
+	for k, test := range factors[:] {
+
+		fmt.Printf("k %v | test %v\n", k, test.description)
+		factorials, _ := factorials(test.A)
+
+		if !reflect.DeepEqual(factorials, test.factorials) {
+
+			t.Fatalf("FAIL: %s \n A: %v got %v : want %v\n",
+				test.description, test.A, factorials, test.factorials)
+		}
+
+	}
+}

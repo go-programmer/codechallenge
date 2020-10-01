@@ -409,3 +409,53 @@ For A = 100000000, the factorials will be:
 
 We can iterate through this range and check 
 accordingly.
+
+### Pesudocode:
+
+Count Peaks
+Check if the length of A, lenA, is prime number
+
+Get the factors of A facA. 
+Why? Factors are the numbers that shows how many blocks can A be divided into.
+
+Iterate through facA.
+The number of blocks will have to be one of facA. 
+
+blockSize := lenA / peaksLen, where it could be 
+
+For example, a facA is 8000*12500, which means 
+8000 blocks of size 12500, or
+12500 blocks of size 8000
+
+The peaks must be at least the size of blocks 
+inorder to have atleast one peak in each block.
+
+First, lets check if higher number of blocks is possible
+
+peaks >= 12500, true, then check if there are at least one 
+peak in 8000 blocks.
+
+
+if peaks >= 8000, true, then check if we can create 12500 blocks
+with at least one peak.
+
+
+The solution with the changes scored 36.
+
+The final solution scored
+Task Score 81%
+Correctness 100%
+Performance 60%
+
+
+It failed medium test cases:
+medium_random chaotic medium sequences, length = ~5,000
+✘ WRONG ANSWER got 125 expected 100 
+
+medium_anti_slow medium test anti slow solutions
+✘ WRONG ANSWER got 2310 expected 1 
+
+The solution can be optimized further but without
+test data correcting the answers will be difficult
+as large test cases pass.
+
