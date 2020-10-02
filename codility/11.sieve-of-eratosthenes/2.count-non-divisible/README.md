@@ -44,30 +44,86 @@ each element of array A is an integer within the range [1..2 * N].
 
 # Solution
 
+### Initial Solution
 Sort. If sorted, we will not have to search top to bottom.
 Just look for numbers smaller than it.
 
-Get factorial and store them in a map.
-map[int][]int; key=number, factorial array.
+This solution became a bit hard to calculate 
+total number of non divisors. And also duplicate
+element was giving hard time to think clearly.
 
-A[0], map[1]{1}
-A[1], map[2]{1,2}
-A[2], map[3]{1,3}
-A[3], map[6]{1,2,3,6}
+```golang
+sort.Ints(A)
+i := 1
+for i < lenA {
 
-Create a new ND array of length A. Fill 
-ND index value with count from map.
+    nonDivisorsCount := 0
 
+    if i != lenA-1 {
 
-Using the map solved the problem and scored 66%, 
-100 on correctness but timed out on medium and 
-large datasets.
+        if copyA[i] != copyA[i+1] {
 
+            //check if the number already exists in map
+            if _, exists := mapA[copyA[i]]; !exists {
 
+                mapA[copyA[i]] = 0
 
-Created issue for optimization task at
+                // check previous numbers divide i
+                for j := i - 1; j >= 0; j-- {
+
+                    if copyA[i]%copyA[j] != 0 {
+                        nonDivisorsCount++
+                    }
+                }
+
+                mapA[copyA[i]] += lenA - (1 + i + nonDivisorsCount)
+            }
+        }
+    }
+    i++
+}
+```
+
+### Second Solution 
+Create a data struture to hold the elements 
+and non divisors count.
+
+```golang
+type Element struct {
+	index            []int
+	count            int
+	nonDivisorsCount int
+}
+```
+
+Use map for the main calculation of non divisors.
+
+It solved the problem and scored 66%, but scored 
+100 on correctness. It failed large scale datasets
+raising timeouts.
+
+Time complexity is O(N^2). 
+
+Created issue for optimization task at 
 https://github.com/GoCheatsheet/codechallenge/issues/4
 
 
+### Refactor/Optimization
+
+The first solution would be more optimal 
+but the problem was finding the divisors 
+when the index grew.
+
+We can store the divisors of the numbers
+and for the next higher number can check
+if the previous number divides it or not
+and just add one to the divisors count 
+and store the total number of divisors 
+count. But the question is till which 
+number do we trace back to find the divisors?
+
+The concepts of Sieve needs to be looked 
+at more to build a solution to find the 
+divisors.
 
 
