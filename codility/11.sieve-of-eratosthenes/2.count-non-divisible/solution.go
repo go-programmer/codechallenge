@@ -6,6 +6,7 @@ type Element struct {
 	nonDivisorsCount int
 }
 
+// Detected time complexity:O(N ** 2)
 func solution(A []int) []int {
 	lenA := len(A)
 
