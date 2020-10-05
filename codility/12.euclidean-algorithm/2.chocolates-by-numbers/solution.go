@@ -1,5 +1,12 @@
 package solution
 
+// Solution returns choclates eaten
+func Solution(N, M int) int {
+
+	gcd := gcd(N, M, 1)
+	return N / gcd
+}
+
 // Returns greatest common divisor of a and b
 func gcd(a, b, res int) int {
 
