@@ -68,3 +68,10 @@ LCM 10*4 / 2 =20
 
 Simple division by GCD, i.e. 1, worked and 
 the solution scored 100.
+
+> More clarfication on why GCD usage worked here:
+Further more, rearranging the choclates being eaten
+in ascending order 0 2 4 6 8, the numbers increasing
+order by 2. In a way the choclates eaten were at those
+indexes.
+
