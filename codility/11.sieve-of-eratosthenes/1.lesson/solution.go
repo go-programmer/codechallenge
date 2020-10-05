@@ -4,8 +4,12 @@ import "fmt"
 
 // Returns array of n numbers from 0.
 // Index represents the number and
-// the value 1 means the index number is prime,
-// 0 means composite.
+// the value 0 means the index number is prime,
+// 1 means composite.
+
+// The logic is to represent 0 for prime in contrast
+// to the tutorial.
+
 // This function implments sieve concept.
 func markPrime(n int) []int {
 	sieve := make([]int, n+1)
@@ -35,6 +39,7 @@ func markPrime(n int) []int {
 
 // Returns an integer array with index as numbers
 // and values representing the smallest prime factor.
+// This is the exact implementation as above sieve().
 func smallestPrimeFactors(n int) []int {
 	F := make([]int, n+1)
 	i := 2
@@ -64,6 +69,8 @@ func smallestPrimeFactors(n int) []int {
 // Complexity: O(log n)
 func primeFactors(n int) []int {
 	primeFactors := []int{}
+
+	n = 9
 
 	F := smallestPrimeFactors(n)
 

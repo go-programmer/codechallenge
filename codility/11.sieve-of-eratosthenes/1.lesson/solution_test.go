@@ -33,7 +33,7 @@ func TestSmallestPrimeFactor(t *testing.T) {
 }
 
 func TestPrimeFactor(t *testing.T) {
-	for k, test := range primeFactor[1:] {
+	for k, test := range primeFactor[:] {
 		fmt.Printf("k %v | test %v\n", k, test.description)
 
 		if got := primeFactors(test.n); !reflect.DeepEqual(got, test.want) {
