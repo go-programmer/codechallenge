@@ -6,7 +6,7 @@ import (
 )
 
 func TestSeieve(t *testing.T) {
-	for k, test := range gcdData[:] {
+	for k, test := range gcdData[4:] {
 		fmt.Printf("k %v | test %v\n", k, test.description)
 
 		if got := gcd(test.a, test.b, 1); got != test.want {
