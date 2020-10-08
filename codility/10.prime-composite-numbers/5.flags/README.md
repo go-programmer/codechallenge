@@ -206,3 +206,4 @@ reached with the logic for fiding max flags counts using the thirdparty solution
 
 The max score reached ws 86 percent.
 
+Found another solution: https://codesays.com/2014/solution-to-boron2013-flags-by-codility/
