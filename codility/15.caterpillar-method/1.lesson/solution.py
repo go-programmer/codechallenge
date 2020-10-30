@@ -63,6 +63,8 @@ class TestSolution(unittest.TestCase):
         
         A = [6, 2, 7, 4, 1, 3, 6]
         self.assertEqual(triangles(A),33)
+        # A = [1,2,3,4,6,6,7]
+        # Function returns differs when sorted.
 
     def xtest_caterpillar(self):
         A = [6, 2, 7, 4, 1, 3, 6]
