@@ -1,6 +1,6 @@
 
 # Problem
-
+Count the number of distinct slices (containing only unique numbers). 
 
 An integer M and a non-empty array A consisting of N non-negative integers are given. 
 All integers in array A are less than or equal to M.
