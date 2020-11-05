@@ -12,4 +12,11 @@ var testCases = []struct {
 		want:        7,
 		err:         "",
 	},
+	{
+		description: "Custom case",
+		A:           []int{3, 4, 3, 2, 3, -1, 3, 1,3,1,3},
+		want:        10,
+		err:         "",
+	},
+
 }

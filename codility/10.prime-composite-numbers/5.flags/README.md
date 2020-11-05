@@ -1,5 +1,7 @@
 # Problem
 
+Find the maximum number of flags that can be set on mountain peaks.
+
 A non-empty array A consisting of N integers is given.
 
 **A peak is an array element which is larger than its neighbours.**
@@ -33,7 +35,7 @@ as shown in a figure below.
 
 The goal is to **set the maximum number of flags on the peaks**, according to certain rules.
 
-https://codility-frontend-prod.s3.amazonaws.com/media/task_static/flags/static/images/auto/6f5e8faa3000c0a74157e6e0bc759b8a.png
+Image: https://codility-frontend-prod.s3.amazonaws.com/media/task_static/flags/static/images/auto/6f5e8faa3000c0a74157e6e0bc759b8a.png
 
 
 

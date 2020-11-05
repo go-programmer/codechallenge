@@ -1,5 +1,8 @@
 
 # Problem
+
+Find the minimal perimeter of any rectangle whose area equals N.
+
 An integer N is given, representing the area of some rectangle.
 
 The area of a rectangle whose sides are of length A and B is A * B, and the perimeter is 2 * (A + B).

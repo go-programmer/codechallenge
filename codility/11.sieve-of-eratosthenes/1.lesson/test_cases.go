@@ -35,7 +35,7 @@ var smallestPrimeFactor = []struct {
 	{
 		description: "Smallest prime factors of 26 numbers.",
 		n:           26,
-		want:        []int{0, 0, 0, 0, 2, 0, 2, 0, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 2, 5},
+		want:        []int{0, 0, 0, 0, 2, 0, 2, 0, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 2, 5, 2},
 		err:         "",
 	},
 }

@@ -1,4 +1,5 @@
 # Problem:
+Find an index of an array such that its value occurs at more than half of indices in the array. 
 
 An array A consisting of N integers is given.
 

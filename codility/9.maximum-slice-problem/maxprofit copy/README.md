@@ -1,4 +1,6 @@
 # Problem
+Find the maximal sum of any double slice. 
+
 An array A consisting of N integers is given. 
 
 It contains **daily prices of a stock share for a period of N consecutive days**.

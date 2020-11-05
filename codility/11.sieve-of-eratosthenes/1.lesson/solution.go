@@ -12,6 +12,9 @@ import "fmt"
 
 // This function implments sieve concept.
 func markPrime(n int) []int {
+	// While creating an int slice,
+	// all the values are set to 0.
+	// So composite numbers are marked 1.
 	sieve := make([]int, n+1)
 
 	sieve[0] = 1
@@ -69,8 +72,6 @@ func smallestPrimeFactors(n int) []int {
 // Complexity: O(log n)
 func primeFactors(n int) []int {
 	primeFactors := []int{}
-
-	n = 9
 
 	F := smallestPrimeFactors(n)
 

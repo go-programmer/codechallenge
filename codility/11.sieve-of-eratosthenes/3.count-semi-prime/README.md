@@ -1,5 +1,7 @@
 # Problem
 
+Count the semiprime numbers in the given range [a..b] 
+
 https://app.codility.com/programmers/lessons/11-sieve_of_eratosthenes/count_semiprimes/
 
 A prime is a positive integer X that has exactly two

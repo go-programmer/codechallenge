@@ -1,8 +1,9 @@
 # Problem
 
+Maximize A[P] * A[Q] * A[R] for any triplet (P, Q, R).
 
-
-A non-empty array A consisting of N integers is given. The product of triplet (P, Q, R) equates to A[P] * A[Q] * A[R] (0 ≤ P < Q < R < N).
+A non-empty array A consisting of N integers is given. 
+The product of triplet (P, Q, R) equates to A[P] * A[Q] * A[R] (0 ≤ P < Q < R < N).
 
 For example, array A such that:
   A[0] = -3

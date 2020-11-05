@@ -1,5 +1,7 @@
 # Problem
 
+Calculate the number of elements of an array that are not divisors of each element. 
+
 https://app.codility.com/programmers/lessons/11-sieve_of_eratosthenes/count_non_divisible
 
 You are given an array A consisting of N integers.
@@ -126,4 +128,59 @@ The concepts of Sieve needs to be looked
 at more to build a solution to find the 
 divisors.
 
+
+2020-11-5
+Reviews the solution and found two solutions.
+https://codesays.com/2014/solution-to-count-non-divisible-by-codility
+https://www.martinkysel.com/codility-countnondivisible-solution
+
+
+Martinkysel solution scored 100.
+```python
+
+Using the Sieve of Eratosthenes, 
+you generate divisors for all input 
+elements of A. If a given number x
+is a divisor of element (x*N == element),
+then N also is a divisor. 
+(N = element/x). 
+
+After all divisors are computed,
+we simply subtract those 
+(multiplied by their counts or 0)
+from the total number of elements in A.
+
+def solution(A):
+  
+    A_max = max(A)
+  
+    count = {}
+    for element in A:
+        if element not in count:
+            count[element] = 1
+        else:
+            count[element] += 1
+  
+    divisors = {}
+    for element in A:
+        divisors[element] = set([1, element])
+  
+    # start the Sieve of Eratosthenes
+    divisor = 2
+    while divisor*divisor <= A_max:
+        element_candidate = divisor
+        while element_candidate  <= A_max:
+            if element_candidate in divisors and not divisor in divisors[element_candidate]:
+                divisors[element_candidate].add(divisor)
+                divisors[element_candidate].add(element_candidate//divisor)
+            element_candidate += divisor
+        divisor += 1
+  
+    result = [0] * len(A)
+    for idx, element in enumerate(A):
+        result[idx] = (len(A)-sum([count.get(divisor,0) for divisor in divisors[element]]))
+  
+    return result
+```
+https://app.codility.com/demo/results/trainingW53CBG-MRS
 

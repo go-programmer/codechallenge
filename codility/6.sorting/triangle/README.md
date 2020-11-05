@@ -1,10 +1,14 @@
 
 # Problem:
-An array A consisting of N integers is given. A triplet (P, Q, R) is triangular if 0 ≤ P < Q < R < N and:
+Determine whether a triangle can be built from a given set of edges. 
 
-        A[P] + A[Q] > A[R],
-        A[Q] + A[R] > A[P],
-        A[R] + A[P] > A[Q].
+
+An array A consisting of N integers is given.
+
+A triplet (P, Q, R) is triangular if 0 ≤ P < Q < R < N and:
+  A[P] + A[Q] > A[R],
+  A[Q] + A[R] > A[P],
+  A[R] + A[P] > A[Q].
 
 For example, consider array A such that:
   A[0] = 10    A[1] = 2    A[2] = 5
