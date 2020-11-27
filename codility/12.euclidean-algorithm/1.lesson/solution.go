@@ -1,5 +1,7 @@
 package solution
 
+import "fmt"
+
 // Returns greatest common divisor of a and b
 func gcd(a, b, res int) int {
 
@@ -22,4 +24,20 @@ func gcd(a, b, res int) int {
 		return gcd(a, b-a, res)
 	}
 
+}
+
+func gcdNew(x, y int) int {
+	
+	for y >= 1 {
+		
+		fmt.Printf("%v : %v\n", x, y)
+
+		if x < y {
+			x, y = y, x
+		}
+		x, y = y, x % y
+
+		
+	}
+	return x
 }

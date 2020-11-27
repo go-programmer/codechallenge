@@ -42,4 +42,11 @@ var gcdData = []struct {
 		want:        15,
 		err:         "",
 	},
+	{
+		description: "GCD of 7 and 3",
+		a:           7,
+		b:           3,
+		want:        1,
+		err:         "",
+	},
 }
